@@ -21,7 +21,7 @@ enum Action: String, CaseIterable {
     case fetchMale = "Fetch Male"
 }
 
-class MainViewController: UICollectionViewController {
+final class MainViewController: UICollectionViewController {
 
     // MARK: - Private properties
     private let actions = Action.allCases
@@ -57,27 +57,25 @@ class MainViewController: UICollectionViewController {
     // MARK: - Private func
     private func fetchUser() {
         guard let url = URL(string: Link.user.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "There is no localized description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let result = try decoder.decode(Result.self, from: data)
-                print(result)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
+        fetchData(fromURL: url)
     }
     
     private func fetchUsers() {
         guard let url = URL(string: Link.users.rawValue) else { return }
-        
+        fetchData(fromURL: url)
+    }
+    
+    private func fetchFemale() {
+        guard let url = URL(string: Link.female.rawValue) else { return }
+        fetchData(fromURL: url)
+    }
+    
+    private func fetchMale() {
+        guard let url = URL(string: Link.male.rawValue) else { return }
+        fetchData(fromURL: url)
+    }
+    
+    private func fetchData(fromURL url: URL) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data else {
                 print(error?.localizedDescription ?? "There is no localized description")
@@ -91,48 +89,10 @@ class MainViewController: UICollectionViewController {
                 print(result)
             } catch let error {
                 print(error.localizedDescription)
-            }
-        }.resume()
-    }
-    
-    private func fetchFemale() {
-        guard let url = URL(string: Link.female.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No localized description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let result = try decoder.decode(Result.self, from: data)
-                print(result)
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }.resume()
-    }
-    
-    private func fetchMale() {
-        guard let url = URL(string: Link.male.rawValue) else { return }
-        
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data = data else {
-                print(error?.localizedDescription ?? "No localized description")
-                return
-            }
-            
-            let decoder = JSONDecoder()
-            
-            do {
-                let result = try decoder.decode(Result.self, from: data)
-                print(result)
-            } catch let error {
-                print(error.localizedDescription)
+                print(error)
             }
         }.resume()
     }
 }
+
 

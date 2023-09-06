@@ -25,5 +25,26 @@ struct Location: Decodable {
     let city: String?
     let state: String?
     let country: String?
-    let postcode: Int?
+    let postcode: PostcodeValue?
+    
+    
+    enum PostcodeValue: Decodable {
+        case string(String)
+        case int(Int)
+
+        init(from decoder: Decoder) throws {
+            let container = try decoder.singleValueContainer()
+
+            if let stringValue = try? container.decode(String.self) {
+                self = .string(stringValue)
+            } else if let intValue = try? container.decode(Int.self) {
+                self = .int(intValue)
+            } else {
+                throw DecodingError.dataCorruptedError(
+                    in: container,
+                    debugDescription: "Invalid postcode value"
+                )
+            }
+        }
+    }
 }
