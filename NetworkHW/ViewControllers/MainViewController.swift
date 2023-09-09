@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  NetworkHW
 //
 //  Created by Goodwasp on 05.09.2023.
@@ -16,6 +16,7 @@ final class MainViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsers()
+        collectionView.register(UINib(nibName: "UserCell", bundle: nil), forCellWithReuseIdentifier: "UserCell")
     }
    
     // MARK: - UICollectionViewDataSource
@@ -24,7 +25,7 @@ final class MainViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath)
         guard let cell = cell as? UserCell else {
             return UICollectionViewCell()
         }
@@ -34,7 +35,12 @@ final class MainViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
+    }
+    
+    // MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
     }
     
     // MARK: - Private func

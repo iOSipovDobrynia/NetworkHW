@@ -49,7 +49,6 @@
 			isa = PBXGroup;
 			children = (
 				E36570F62AAC8578009FBB2B /* UserCell.swift */,
-				E36570F72AAC8578009FBB2B /* UserCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -113,8 +112,9 @@
 		E3A1C6422AA6FD8000DF124A /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				E3A1C6322AA6FD5800DF124A /* Main.storyboard */,
 				E3A1C6372AA6FD5A00DF124A /* LaunchScreen.storyboard */,
+				E3A1C6322AA6FD5800DF124A /* Main.storyboard */,
+				E36570F72AAC8578009FBB2B /* UserCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";

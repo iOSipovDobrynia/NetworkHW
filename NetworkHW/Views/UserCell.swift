@@ -12,10 +12,14 @@ class UserCell: UICollectionViewCell {
     @IBOutlet var userImage: UIImageView!    
     @IBOutlet var fullnameLabel: UILabel!
     
+    // MARK: - Override func
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userImage?.image = nil
+    }
+    
     // MARK: - Public func
     func configure(with user: User) {
-        print(user.name.fullname)
-        print(self)
         fullnameLabel.text = user.name.fullname
         
         NetworkManager.shared.fetchImage(from: user.picture.large) { [weak self] result in
