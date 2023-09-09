@@ -29,18 +29,6 @@
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rKT-w7-o0z">
                                     <rect key="frame" x="0.0" y="0.0" width="300" height="90"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4S-S0-NVr">
-                                            <rect key="frame" x="126" y="33" width="48" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="E4S-S0-NVr" firstAttribute="centerY" secondItem="rKT-w7-o0z" secondAttribute="centerY" id="bJS-WS-WuF"/>
-                                        <constraint firstItem="E4S-S0-NVr" firstAttribute="centerX" secondItem="rKT-w7-o0z" secondAttribute="centerX" id="lmS-Qz-93S"/>
-                                    </constraints>
                                 </collectionViewCellContentView>
                                 <color key="backgroundColor" systemColor="systemMintColor"/>
                                 <userDefinedRuntimeAttributes>

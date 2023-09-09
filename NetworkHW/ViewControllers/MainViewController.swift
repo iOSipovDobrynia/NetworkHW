@@ -25,7 +25,10 @@ final class MainViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath)
-        
+        guard let cell = cell as? UserCell else {
+            return UICollectionViewCell()
+        }
+        cell.configure(with: users[indexPath.item])
         return cell
     }
     

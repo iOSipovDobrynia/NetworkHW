@@ -11,9 +11,10 @@ struct Response: Decodable {
 
 struct User: Decodable {
     let gender: String?
-    let name: Name?
+    let name: Name
     let location: Location?
     let email: String?
+    let picture: Picture
 }
 
 struct Name: Decodable {
@@ -51,4 +52,8 @@ struct Location: Decodable {
             }
         }
     }
+}
+
+struct Picture: Decodable {
+    let large: String
 }

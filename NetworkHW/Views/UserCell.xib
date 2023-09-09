@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="UserCell" customModule="NetworkHW" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="user" id="gTV-IL-0wX" customClass="UserCell" customModule="NetworkHW" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="386" height="140"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -44,7 +44,7 @@
             </constraints>
             <size key="customSize" width="386" height="137"/>
             <connections>
-                <outlet property="fullnameLabel" destination="bhr-ea-90x" id="Moc-cO-AKm"/>
+                <outlet property="fullnameLabel" destination="bhr-ea-90x" id="K1H-nz-rbw"/>
                 <outlet property="userImage" destination="zbi-tL-txW" id="LOf-zC-Gu9"/>
             </connections>
             <point key="canvasLocation" x="200" y="50.352112676056343"/>
