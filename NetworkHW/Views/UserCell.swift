@@ -11,6 +11,8 @@ class UserCell: UICollectionViewCell {
     // MARK: - IBOutlets
     @IBOutlet var userImage: UIImageView!    
     @IBOutlet var fullnameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     
     // MARK: - Override func
     override func prepareForReuse() {
@@ -21,6 +23,8 @@ class UserCell: UICollectionViewCell {
     // MARK: - Public func
     func configure(with user: User) {
         fullnameLabel.text = user.name.fullname
+        ageLabel.text = "\(user.dob.age) y.o."
+        locationLabel.text = user.location.describe
         
         NetworkManager.shared.fetchImage(from: user.picture.large) { [weak self] result in
             switch result {

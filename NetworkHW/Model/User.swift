@@ -10,10 +10,10 @@ struct Response: Decodable {
 }
 
 struct User: Decodable {
-    let gender: String?
     let name: Name
-    let location: Location?
+    let location: Location
     let email: String?
+    let dob: Dob
     let picture: Picture
 }
 
@@ -27,33 +27,50 @@ struct Name: Decodable {
     }
 }
 struct Location: Decodable {
-    let city: String?
-    let state: String?
-    let country: String?
-    let postcode: PostcodeValue?
+    let city: String
+    let country: String
+    let postcode: PostcodeValue
     
-    
-    enum PostcodeValue: Decodable {
-        case string(String)
-        case int(Int)
+    var describe: String {
+        "\(city), \(country), \(postcode)"
+    }
+}
 
-        init(from decoder: Decoder) throws {
-            let container = try decoder.singleValueContainer()
+enum PostcodeValue: Decodable {
+    case string(String)
+    case int(Int)
 
-            if let stringValue = try? container.decode(String.self) {
-                self = .string(stringValue)
-            } else if let intValue = try? container.decode(Int.self) {
-                self = .int(intValue)
-            } else {
-                throw DecodingError.dataCorruptedError(
-                    in: container,
-                    debugDescription: "Invalid postcode value"
-                )
-            }
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+
+        if let stringValue = try? container.decode(String.self) {
+            self = .string(stringValue)
+        } else if let intValue = try? container.decode(Int.self) {
+            self = .int(intValue)
+        } else {
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Invalid postcode value"
+            )
         }
     }
 }
 
+struct Dob: Decodable {
+    let age: Int
+}
+
 struct Picture: Decodable {
     let large: String
+}
+
+extension PostcodeValue: CustomStringConvertible {
+    var description: String {
+        switch self {
+        case .string(let string):
+            return string
+        case .int(let int):
+            return "\(int)"
+        }
+    }
 }
