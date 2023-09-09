@@ -12,11 +12,14 @@
 		E39570C52AAB78C2005B2267 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39570C42AAB78C2005B2267 /* NetworkManager.swift */; };
 		E3A1C62D2AA6FD5800DF124A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1C62C2AA6FD5800DF124A /* AppDelegate.swift */; };
 		E3A1C62F2AA6FD5800DF124A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1C62E2AA6FD5800DF124A /* SceneDelegate.swift */; };
-		E3A1C6312AA6FD5800DF124A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1C6302AA6FD5800DF124A /* MainViewController.swift */; };
+		E3A1C6312AA6FD5800DF124A /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1C6302AA6FD5800DF124A /* UsersViewController.swift */; };
 		E3A1C6342AA6FD5800DF124A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A1C6322AA6FD5800DF124A /* Main.storyboard */; };
 		E3A1C6362AA6FD5A00DF124A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3A1C6352AA6FD5A00DF124A /* Assets.xcassets */; };
 		E3A1C6392AA6FD5A00DF124A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A1C6372AA6FD5A00DF124A /* LaunchScreen.storyboard */; };
 		E3A1C6482AA705B500DF124A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A1C6472AA705B500DF124A /* User.swift */; };
+		E3B38A382AAD04F600F426AD /* UsersInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B38A372AAD04F600F426AD /* UsersInfoViewController.swift */; };
+		E3B38A3D2AAD05D300F426AD /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B38A3B2AAD05D300F426AD /* UserInfoCell.swift */; };
+		E3B38A3E2AAD05D300F426AD /* UserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3B38A3C2AAD05D300F426AD /* UserInfoCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,12 +29,15 @@
 		E3A1C6292AA6FD5800DF124A /* NetworkHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A1C62C2AA6FD5800DF124A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A1C62E2AA6FD5800DF124A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E3A1C6302AA6FD5800DF124A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		E3A1C6302AA6FD5800DF124A /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		E3A1C6332AA6FD5800DF124A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3A1C6352AA6FD5A00DF124A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3A1C6382AA6FD5A00DF124A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E3A1C63A2AA6FD5A00DF124A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3A1C6472AA705B500DF124A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E3B38A372AAD04F600F426AD /* UsersInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInfoViewController.swift; sourceTree = "<group>"; };
+		E3B38A3B2AAD05D300F426AD /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
+		E3B38A3C2AAD05D300F426AD /* UserInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserInfoCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				E36570F62AAC8578009FBB2B /* UserCell.swift */,
+				E3B38A3B2AAD05D300F426AD /* UserInfoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,7 +111,8 @@
 		E3A1C6412AA6FD7400DF124A /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				E3A1C6302AA6FD5800DF124A /* MainViewController.swift */,
+				E3A1C6302AA6FD5800DF124A /* UsersViewController.swift */,
+				E3B38A372AAD04F600F426AD /* UsersInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -115,6 +123,7 @@
 				E3A1C6372AA6FD5A00DF124A /* LaunchScreen.storyboard */,
 				E3A1C6322AA6FD5800DF124A /* Main.storyboard */,
 				E36570F72AAC8578009FBB2B /* UserCell.xib */,
+				E3B38A3C2AAD05D300F426AD /* UserInfoCell.xib */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -196,6 +205,7 @@
 				E36570F92AAC8578009FBB2B /* UserCell.xib in Resources */,
 				E3A1C6392AA6FD5A00DF124A /* LaunchScreen.storyboard in Resources */,
 				E3A1C6362AA6FD5A00DF124A /* Assets.xcassets in Resources */,
+				E3B38A3E2AAD05D300F426AD /* UserInfoCell.xib in Resources */,
 				E3A1C6342AA6FD5800DF124A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,12 +217,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B38A3D2AAD05D300F426AD /* UserInfoCell.swift in Sources */,
 				E39570C52AAB78C2005B2267 /* NetworkManager.swift in Sources */,
-				E3A1C6312AA6FD5800DF124A /* MainViewController.swift in Sources */,
+				E3A1C6312AA6FD5800DF124A /* UsersViewController.swift in Sources */,
 				E36570F82AAC8578009FBB2B /* UserCell.swift in Sources */,
 				E3A1C62D2AA6FD5800DF124A /* AppDelegate.swift in Sources */,
 				E3A1C6482AA705B500DF124A /* User.swift in Sources */,
 				E3A1C62F2AA6FD5800DF124A /* SceneDelegate.swift in Sources */,
+				E3B38A382AAD04F600F426AD /* UsersInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

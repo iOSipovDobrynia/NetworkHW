@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MainViewController: UICollectionViewController {
+final class UsersViewController: UICollectionViewController {
     
     // MARK: - Public properties
     var users: [User] = []
@@ -35,12 +35,17 @@ final class MainViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        performSegue(withIdentifier: "showInfo", sender: nil)
     }
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if segue.identifier == "showInfo" {
+            guard let userInfoVC = segue.destination as? UsersInfoViewController else {
+                return
+            }
+            userInfoVC.users = users
+        }
     }
     
     // MARK: - Private func
@@ -60,7 +65,7 @@ final class MainViewController: UICollectionViewController {
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
-extension MainViewController: UICollectionViewDelegateFlowLayout {
+extension UsersViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: UIScreen.main.bounds.width - 32, height: 140)
     }
