@@ -8,6 +8,14 @@
 import UIKit
 
 final class MainViewController: UICollectionViewController {
+    
+    var users: [User] = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        fetchUsers()
+    }
    
     // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -27,6 +35,14 @@ final class MainViewController: UICollectionViewController {
     
     // MARK: - Private func
     private func fetchUsers() {
+        NetworkManager.shared.fetchUsers(from: Link.users.rawValue) { [weak self] result in
+            switch result {
+            case .success(let users):
+                self?.users = users
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

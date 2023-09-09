@@ -5,7 +5,7 @@
 //  Created by Goodwasp on 05.09.2023.
 //
 
-struct Result: Decodable {
+struct Response: Decodable {
     let results: [User]?
 }
 
