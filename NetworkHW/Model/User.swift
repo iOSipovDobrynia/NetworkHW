@@ -17,9 +17,13 @@ struct User: Decodable {
 }
 
 struct Name: Decodable {
-    let title: String?
-    let first: String?
-    let last: String?
+    let title: String
+    let first: String
+    let last: String
+    
+    var fullname: String {
+        title + " " + first + " " + last
+    }
 }
 struct Location: Decodable {
     let city: String?

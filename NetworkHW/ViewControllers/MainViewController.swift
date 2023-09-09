@@ -9,9 +9,10 @@ import UIKit
 
 final class MainViewController: UICollectionViewController {
     
+    // MARK: - Public properties
     var users: [User] = []
     
-    
+    // MARK: - Views's LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchUsers()
@@ -19,11 +20,11 @@ final class MainViewController: UICollectionViewController {
    
     // MARK: - UICollectionViewDataSource
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        users.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "action", for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "user", for: indexPath)
         
         return cell
     }
@@ -39,6 +40,9 @@ final class MainViewController: UICollectionViewController {
             switch result {
             case .success(let users):
                 self?.users = users
+                DispatchQueue.main.async {
+                    self?.collectionView.reloadData()
+                }
             case .failure(let error):
                 print(error)
             }
