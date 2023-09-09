@@ -37,6 +37,6 @@ final class UsersInfoViewController: UICollectionViewController {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension UsersInfoViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: UIScreen.main.bounds.width - 32, height: UIScreen.main.bounds.height)
+        CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
     }
 }
