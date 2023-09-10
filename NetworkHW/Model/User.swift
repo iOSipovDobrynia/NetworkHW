@@ -29,11 +29,17 @@ struct Name: Decodable {
 struct Location: Decodable {
     let city: String
     let country: String
+    let coordinates: Coordinates
     let postcode: PostcodeValue
     
     var describe: String {
         "\(city), \(country), \(postcode)"
     }
+}
+
+struct Coordinates: Decodable {
+    let latitude: String
+    let longitude: String
 }
 
 enum PostcodeValue: Decodable {
