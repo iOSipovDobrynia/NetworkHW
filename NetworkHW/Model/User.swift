@@ -40,6 +40,10 @@ struct Location: Decodable {
 struct Coordinates: Decodable {
     let latitude: String
     let longitude: String
+    
+    var describe: String {
+        "\(latitude); \(longitude)"
+    }
 }
 
 enum PostcodeValue: Decodable {
@@ -63,7 +67,12 @@ enum PostcodeValue: Decodable {
 }
 
 struct Dob: Decodable {
+    let date: String
     let age: Int
+    
+    var describe: String {
+        String(date.prefix(10)) + ", " + String(age) + "y.o."
+    }
 }
 
 struct Picture: Decodable {

@@ -8,26 +8,24 @@
 import UIKit
 import MapKit
 
-class UserInfoCell: UICollectionViewCell {
+final class UserInfoCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     @IBOutlet var userImage: UIImageView!
     @IBOutlet var fullnameLabel: UILabel!
+    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
     @IBOutlet var mapView: MKMapView!
-    
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
     // MARK: - Override func
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
-    // MARK: - func
+    // MARK: - Public func
     func configure(with user: User) {
-        fullnameLabel.text = user.name.fullname
+        setupLabels(with: user)
+        setupMapView(with: user.location.coordinates)
         
         NetworkManager.shared.fetchImage(from: user.picture.large) { [weak self] result in
             switch result {
@@ -37,13 +35,24 @@ class UserInfoCell: UICollectionViewCell {
                 print(error)
             }
         }
-        
-        guard let latitude = Double(user.location.coordinates.latitude),
-        let longitude = Double(user.location.coordinates.longitude) else {
+    }
+    
+    // MARK: - Private func
+    private func setupLabels(with user: User) {
+        fullnameLabel.text = user.name.fullname
+        dateLabel.text = user.dob.describe
+        locationLabel.text = """
+        Location: \(user.location.describe)
+        Coordinates: \(user.location.coordinates.describe)
+        """
+    }
+    
+    private func setupMapView(with coordinates: Coordinates) {
+        guard let latitude = Double(coordinates.latitude),
+              let longitude = Double(coordinates.longitude) else {
             return
         }
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
         addAnnotationToMapView(at: coordinate)
         setMapViewRegion(centeredAt: coordinate)
     }

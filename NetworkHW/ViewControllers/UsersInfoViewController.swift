@@ -9,6 +9,8 @@ import UIKit
 
 
 final class UsersInfoViewController: UICollectionViewController {
+
+    // MARK: - Public properties
     var users: [User] = []
     
     // MARK: - View's Life cycle
@@ -30,8 +32,6 @@ final class UsersInfoViewController: UICollectionViewController {
         cell.configure(with: users[indexPath.item])
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

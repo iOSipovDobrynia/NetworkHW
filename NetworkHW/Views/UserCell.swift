@@ -7,7 +7,8 @@
 
 import UIKit
 
-class UserCell: UICollectionViewCell {
+final class UserCell: UICollectionViewCell {
+   
     // MARK: - IBOutlets
     @IBOutlet var userImage: UIImageView!    
     @IBOutlet var fullnameLabel: UILabel!
