@@ -12,11 +12,13 @@ final class UsersInfoViewController: UICollectionViewController {
 
     // MARK: - Public properties
     var users: [User] = []
+    var previousIndexPath: IndexPath!
     
     // MARK: - View's Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.register(UINib(nibName: "UserInfoCell", bundle: nil), forCellWithReuseIdentifier: "UserInfoCell")
+        collectionView.scrollToItem(at: previousIndexPath, at: .centeredHorizontally, animated: false)
     }
     
     // MARK: UICollectionViewDataSource

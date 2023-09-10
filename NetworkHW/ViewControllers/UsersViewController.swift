@@ -35,7 +35,7 @@ final class UsersViewController: UICollectionViewController {
     
     // MARK: - UICollectionViewDelegate
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showInfo", sender: nil)
+        performSegue(withIdentifier: "showInfo", sender: indexPath)
     }
     
     // MARK: - Navigation
@@ -45,6 +45,7 @@ final class UsersViewController: UICollectionViewController {
                 return
             }
             userInfoVC.users = users
+            userInfoVC.previousIndexPath = sender as? IndexPath
         }
     }
     
