@@ -106,7 +106,7 @@ struct Location: Decodable {
         } else {
             coordinates = Coordinates(latitude: "", longitude: "")
         }
-        postcode = PostcodeValue.int(1)
+        postcode = PostcodeValue(postcodeData: locationData["postcode"] ?? 0)
     }
 }
 
@@ -145,6 +145,16 @@ enum PostcodeValue: Decodable {
                 in: container,
                 debugDescription: "Invalid postcode value"
             )
+        }
+    }
+    
+    init(postcodeData: Any) {
+        if let stringValue = postcodeData as? String {
+            self = .string(stringValue)
+        } else if let intValue = postcodeData as? Int {
+            self = .int(intValue)
+        } else {
+            self = .int(0)
         }
     }
 }
