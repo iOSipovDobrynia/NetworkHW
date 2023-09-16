@@ -49,7 +49,7 @@ struct Coordinates: Decodable {
 enum PostcodeValue: Decodable {
     case string(String)
     case int(Int)
-
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
 
