@@ -5,9 +5,9 @@
 //  Created by Goodwasp on 05.09.2023.
 //
 
-struct Response: Decodable {
-    let results: [User]?
-}
+//struct Response: Decodable {
+//    let results: [User]?
+//}
 
 struct User: Decodable {
     let name: Name

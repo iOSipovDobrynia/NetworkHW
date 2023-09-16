@@ -8,16 +8,11 @@
 import Foundation
 import Alamofire
 
-enum NetworkError: Error {
-    case invalidUrl
-    case noData
-}
-
 enum Link: String {
-    case users = "https://randomuser.me/api/?results=2"
+    case users = "https://randomuser.me/api/?results=20"
 }
 
-class NetworkManager {
+final class NetworkManager {
     static let shared = NetworkManager()
     private init() {}
     
@@ -35,20 +30,16 @@ class NetworkManager {
             }
     }
     
-    func fetchImage(from url: String?, completion: @escaping(Result<Data, NetworkError>) -> Void) {
-        guard let url = URL(string: url ?? "") else {
-            completion(.failure(.invalidUrl))
-            return
-        }
-        
-        DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: url) else {
-                completion(.failure(.invalidUrl))
-                return
+    func fetchImage(from url: String, completion: @escaping(Result<Data, AFError>) -> Void) {
+        AF.request(url)
+            .validate()
+            .responseData { dataResponse in
+                switch dataResponse.result {
+                case .success(let dataImage):
+                    completion(.success(dataImage))
+                case .failure(let error):
+                    completion(.failure(error))
+                }
             }
-            DispatchQueue.main.async {
-                completion(.success(imageData))
-            }
-        }
     }
 }
