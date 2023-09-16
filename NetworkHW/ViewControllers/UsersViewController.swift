@@ -57,38 +57,7 @@ final class UsersViewController: UICollectionViewController {
             .responseJSON(completionHandler: { [weak self] dataResponse in
                 switch dataResponse.result {
                 case .success(let value):
-                    guard let value = value as? [String: Any] else { return }
-                    guard let results = value["results"] as? [[String: Any]] else { return }
-                    for result in results {
-                        guard let name = result["name"] as? [String: Any] else { return }
-                        guard let location = result["location"] as? [String: Any] else { return }
-                        guard let coordinates = location["coordinates"] as? [String: Any] else { return}
-                        guard let dob = result["dob"] as? [String: Any] else { return }
-                        guard let picture = result["picture"] as? [String: Any] else { return }
-                        let user = User(
-                            name: Name(
-                                title: name["title"] as? String ?? "",
-                                first: name["first"] as? String ?? "",
-                                last: name["last"] as? String ?? ""
-                            ),
-                            location: Location(
-                                city: location["city"] as? String ?? "",
-                                country: location["country"] as? String ?? "",
-                                coordinates: Coordinates(
-                                    latitude: coordinates["latitude"] as? String ?? "",
-                                    longitude: coordinates["longitude"] as? String ?? ""
-                                ),
-                                postcode: PostcodeValue.int(1)
-                            ),
-                            email: result["email"] as? String,
-                            dob: Dob(
-                                date: dob["date"] as? String ?? "",
-                                age: dob["age"] as? Int ?? 0
-                            ),
-                            picture: Picture(large: picture["large"] as? String ?? "")
-                        )
-                        self?.users.append(user)
-                    }
+                    self?.users = User.getUsers(from: value)
                     self?.collectionView.reloadData()
                 case .failure(let error):
                     print(error)
