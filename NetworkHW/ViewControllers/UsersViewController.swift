@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Alamofire
 
 final class UsersViewController: UICollectionViewController {
     
@@ -52,17 +51,15 @@ final class UsersViewController: UICollectionViewController {
     
     // MARK: - Private func
     private func fetchUsers() {
-        AF.request(Link.users.rawValue)
-            .validate()
-            .responseJSON(completionHandler: { [weak self] dataResponse in
-                switch dataResponse.result {
-                case .success(let value):
-                    self?.users = User.getUsers(from: value)
-                    self?.collectionView.reloadData()
-                case .failure(let error):
-                    print(error)
-                }
-            })
+        NetworkManager.shared.fetchUsers(from: Link.users.rawValue) { [weak self] result in
+            switch result {
+            case .success(let users):
+                self?.users = users
+                self?.collectionView.reloadData()
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }
 

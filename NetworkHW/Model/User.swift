@@ -55,9 +55,7 @@ struct User: Decodable {
     static func getUsers(from value: Any) -> [User] {
         guard let value = value as? [String: Any] else { return [] }
         guard let results = value["results"] as? [[String: Any]] else { return []}
-        var users: [User] = []
-        users = results.map { User(userData: $0)}
-        return users
+        return results.map { User(userData: $0)}
     }
 }
 
