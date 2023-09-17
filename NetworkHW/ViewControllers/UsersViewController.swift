@@ -17,6 +17,7 @@ final class UsersViewController: UICollectionViewController {
         super.viewDidLoad()
         fetchUsers()
         collectionView.register(UINib(nibName: "UserCell", bundle: nil), forCellWithReuseIdentifier: "UserCell")
+        setupRefreshControl()
     }
     
     // MARK: - UICollectionViewDataSource
@@ -50,16 +51,26 @@ final class UsersViewController: UICollectionViewController {
     }
     
     // MARK: - Private func
+    @objc
     private func fetchUsers() {
         NetworkManager.shared.fetchUsers(from: Link.users.rawValue) { [weak self] result in
             switch result {
             case .success(let users):
                 self?.users = users
                 self?.collectionView.reloadData()
+                if self?.collectionView.refreshControl != nil {
+                    self?.collectionView.refreshControl?.endRefreshing()
+                }
             case .failure(let error):
                 print(error)
             }
         }
+    }
+    
+    private func setupRefreshControl() {
+        collectionView.refreshControl = UIRefreshControl()
+        collectionView.refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        collectionView.refreshControl?.addTarget(self, action: #selector(fetchUsers), for: .valueChanged)
     }
 }
 
