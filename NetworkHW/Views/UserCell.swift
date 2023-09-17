@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class UserCell: UICollectionViewCell {
    
@@ -15,25 +16,23 @@ final class UserCell: UICollectionViewCell {
     @IBOutlet var ageLabel: UILabel!
     @IBOutlet var locationLabel: UILabel!
     
-    // MARK: - Override func
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        userImage?.image = nil
-    }
-    
     // MARK: - Public func
     func configure(with user: User) {
         fullnameLabel.text = user.name.fullname
         ageLabel.text = "\(user.dob.age) y.o."
         locationLabel.text = user.location.describe
         
-        NetworkManager.shared.fetchImage(from: user.picture.large) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.userImage.image = UIImage(data: imageData)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        guard let imageUrl = URL(string: user.picture.large) else { return }
+        let processor = DownsamplingImageProcessor(size: userImage.bounds.size)
+        userImage.kf.indicatorType = .activity
+        userImage.kf.setImage(
+            with: imageUrl,
+            options: [
+                .processor(processor),
+                .scaleFactor(UIScreen.main.scale),
+                .cacheOriginalImage,
+                .transition(.fade(0.5))
+            ]
+        )
     }
 }

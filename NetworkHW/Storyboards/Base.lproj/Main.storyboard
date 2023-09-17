@@ -43,7 +43,13 @@
                             <outlet property="delegate" destination="0tY-aq-Lq3" id="Adn-cn-7gE"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="randomuser.me API" id="80J-Tb-O1x"/>
+                    <navigationItem key="navigationItem" title="randomuser.me API" id="80J-Tb-O1x">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="trash" catalog="system" id="Pe8-XO-FK9">
+                            <connections>
+                                <action selector="clearButtonPressed:" destination="0tY-aq-Lq3" id="fRY-4O-nkg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <segue destination="re5-5h-Gpm" kind="show" identifier="showInfo" id="OwW-3s-UXa"/>
                     </connections>
@@ -107,6 +113,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

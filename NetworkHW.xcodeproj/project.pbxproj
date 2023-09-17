@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E30853452AB599EF00085E4C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E30853442AB599EF00085E4C /* Alamofire */; };
+		E33D7BC92AB718C6009DC485 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E33D7BC82AB718C6009DC485 /* Kingfisher */; };
 		E36570F82AAC8578009FBB2B /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E36570F62AAC8578009FBB2B /* UserCell.swift */; };
 		E36570F92AAC8578009FBB2B /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E36570F72AAC8578009FBB2B /* UserCell.xib */; };
 		E39570C52AAB78C2005B2267 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39570C42AAB78C2005B2267 /* NetworkManager.swift */; };
@@ -46,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E33D7BC92AB718C6009DC485 /* Kingfisher in Frameworks */,
 				E30853452AB599EF00085E4C /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +55,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E33D7BC72AB718C6009DC485 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E39570C22AAB7745005B2267 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +84,7 @@
 			children = (
 				E3A1C62B2AA6FD5800DF124A /* NetworkHW */,
 				E3A1C62A2AA6FD5800DF124A /* Products */,
+				E33D7BC72AB718C6009DC485 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,6 +174,7 @@
 			name = NetworkHW;
 			packageProductDependencies = (
 				E30853442AB599EF00085E4C /* Alamofire */,
+				E33D7BC82AB718C6009DC485 /* Kingfisher */,
 			);
 			productName = NetworkHW;
 			productReference = E3A1C6292AA6FD5800DF124A /* NetworkHW.app */;
@@ -195,6 +206,7 @@
 			mainGroup = E3A1C6202AA6FD5800DF124A;
 			packageReferences = (
 				E30853432AB599EF00085E4C /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E30853592AB7146300085E4C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E3A1C62A2AA6FD5800DF124A /* Products */;
 			projectDirPath = "";
@@ -464,6 +476,14 @@
 				version = 5.0.0;
 			};
 		};
+		E30853592AB7146300085E4C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +491,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E30853432AB599EF00085E4C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E33D7BC82AB718C6009DC485 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E30853592AB7146300085E4C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

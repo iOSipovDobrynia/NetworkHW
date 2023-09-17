@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class UsersViewController: UICollectionViewController {
     
@@ -48,6 +49,12 @@ final class UsersViewController: UICollectionViewController {
             userInfoVC.users = users
             userInfoVC.previousIndexPath = sender as? IndexPath
         }
+    }
+    
+    @IBAction func clearButtonPressed(_ sender: UIBarButtonItem) {
+        let cache = ImageCache.default
+        cache.clearMemoryCache()
+        cache.clearDiskCache()
     }
     
     // MARK: - Private func
