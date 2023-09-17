@@ -20,6 +20,7 @@ final class UserInfoCell: UICollectionViewCell {
     // MARK: - Override func
     override func prepareForReuse() {
         super.prepareForReuse()
+        userImage?.image = nil
     }
     
     // MARK: - Public func

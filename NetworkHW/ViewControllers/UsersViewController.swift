@@ -10,7 +10,7 @@ import UIKit
 final class UsersViewController: UICollectionViewController {
     
     // MARK: - Public properties
-    var users: [User] = []
+    private var users: [User] = []
     
     // MARK: - Views's LifeCycle
     override func viewDidLoad() {

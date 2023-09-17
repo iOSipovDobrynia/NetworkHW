@@ -36,8 +36,8 @@ struct User: Decodable {
             self.dob = Dob(dodData: dob)
             self.picture = Picture(pictureData: picture)
         } else {
-            self.name = Name(title: "", first: "", last: "")
-            self.location = Location(
+            name = Name(title: "", first: "", last: "")
+            location = Location(
                 city: "",
                 country: "",
                 coordinates: Coordinates(
@@ -46,9 +46,9 @@ struct User: Decodable {
                 ),
                 postcode: PostcodeValue.int(1)
             )
-            self.email = ""
-            self.dob = Dob(date: "", age: 0)
-            self.picture = Picture(large: "")
+            email = ""
+            dob = Dob(date: "", age: 0)
+            picture = Picture(large: "")
         }
     }
     
