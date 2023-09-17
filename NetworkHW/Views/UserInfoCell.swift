@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import Kingfisher
 
 final class UserInfoCell: UICollectionViewCell {
     
@@ -28,14 +29,8 @@ final class UserInfoCell: UICollectionViewCell {
         setupLabels(with: user)
         setupMapView(with: user.location.coordinates)
         
-        NetworkManager.shared.fetchImage(from: user.picture.large) { [weak self] result in
-            switch result {
-            case .success(let imageData):
-                self?.userImage.image = UIImage(data: imageData)
-            case .failure(let error):
-                print(error)
-            }
-        }
+        guard let imageUrl = URL(string: user.picture.large) else { return }
+        userImage.kf.setImage(with: imageUrl)
     }
     
     // MARK: - Private func
