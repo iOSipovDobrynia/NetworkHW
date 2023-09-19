@@ -18,10 +18,12 @@ final class UserCell: UICollectionViewCell {
     
     // MARK: - Public func
     func configure(with user: User) {
+        // labels
         fullnameLabel.text = user.name.fullname
         ageLabel.text = "\(user.dob.age) y.o."
         locationLabel.text = user.location.describe
         
+        // image
         guard let imageUrl = URL(string: user.picture.large) else { return }
         let processor = DownsamplingImageProcessor(size: userImage.bounds.size)
         userImage.kf.indicatorType = .activity
